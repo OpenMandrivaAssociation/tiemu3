@@ -3,7 +3,6 @@ Name: tiemu3
 Epoch: 1
 Version: 3.03
 Release: %mkrel 0.1.20081230svn2798.1
-Vendor: LPG (http://lpg.ticalc.org)
 Source: tiemu-%{version}-svn2798.tar.bz2
 Group: Emulators
 License: GPLv2+
