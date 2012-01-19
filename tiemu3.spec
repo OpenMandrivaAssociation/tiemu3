@@ -24,7 +24,6 @@ TiEmu is a TI89(Ti)/92(+)/V200 emulator. This version supports graphical debuggi
 
 %build
 source /etc/profile.d/qt.sh
-%if 0%{?system_tcl}
 sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itcl/configure.in
 sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itcl/configure
 sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itk/configure.in
@@ -36,10 +35,9 @@ make
 if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT; fi
 mkdir -p $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
-%endif
+
 # don't package unneeded empty directory
 rmdir $RPM_BUILD_ROOT%{_libdir}/insight1.0
-%if !0%{?system_tcl}
 # don't package Tcl/Tk stuff which conflicts with the system versions
 rm -rf $RPM_BUILD_ROOT%{_includedir}
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tclsh.1* $RPM_BUILD_ROOT%{_mandir}/man1/wish.1*
@@ -50,7 +48,6 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/tclConfig.sh $RPM_BUILD_ROOT%{_libdir}/tkConfig.
 # don't package these either, they won't conflict, but they aren't useful either
 rm -f $RPM_BUILD_ROOT%{_bindir}/tclsh8.4 $RPM_BUILD_ROOT%{_bindir}/wish8.4
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
-%endif
 
 mkdir -p ${RPM_BUILD_ROOT}/usr/share/applications
 cat >${RPM_BUILD_ROOT}/usr/share/applications/tiemu.desktop <<EOF
@@ -87,7 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/redhat/gui
 /usr/share/tiemu
 %{_datadir}/applications/lpg-tiemu.desktop
-%if !0%{?system_tcl}
 %{_datadir}/tcl8.4
 %{_datadir}/tk8.4
 %{_datadir}/itcl3.2
@@ -95,5 +91,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/iwidgets4.0.1
 %{_libdir}/itcl3.2
 %{_libdir}/itk3.2
-%endif
+
 
