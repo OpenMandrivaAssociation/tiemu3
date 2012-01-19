@@ -1,4 +1,3 @@
-
 Name:		tiemu3
 Version:	3.03
 Release: 	%mkrel 0.1.20081230svn2798.1
@@ -9,7 +8,7 @@ BuildRequires:	libticables-devel >= 1:1.0.0, libticonv-devel >= 1:1.0.4, libtifi
 Requires:	tcl >= 8.4, tk >= 8.4, itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
 Conflicts:	tcl < 1:8.5, tk < 1:8.5, itcl < 3.3, itk < 3.3, iwidgets < 4.0.2
 Requires:	xdg-utils >= 1.0.0
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}-buildroot
 Obsoletes:	tiemu < %{version}, tiemu-tigcc-debugging < 20050828
 Conflicts:	tiemu > %{version}
 Provides:	tiemu = %{version}
