@@ -1,20 +1,19 @@
 
-Name: tiemu3
-Epoch: 1
-Version: 3.03
-Release: %mkrel 0.1.20081230svn2798.1
-Source: tiemu-%{version}-svn2798.tar.bz2
-Group: Emulators
-License: GPLv2+
-BuildRequires: libticables-devel >= 1:1.0.0, libticonv-devel >= 1:1.0.4, libtifiles-devel >= 1:1.0.7, libticalcs-devel >= 1:1.0.7, glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, libglade2-devel >= 2.4.0, zlib-devel, kdelibs3-devel, libX11-devel, libXext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff
-Requires: tcl >= 8.4, tk >= 8.4, itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
-Conflicts: tcl < 1:8.5, tk < 1:8.5, itcl < 3.3, itk < 3.3, iwidgets < 4.0.2
-Requires: xdg-utils >= 1.0.0
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Obsoletes: tiemu < %{version}, tiemu-tigcc-debugging < 20050828
-Conflicts: tiemu > %{version}
-Provides: tiemu = %{version}
-Summary: TiEmu is a TI89(Ti)/92(+)/V200 emulator
+Name:		tiemu3
+Version:	3.03
+Release: 	%mkrel 0.1.20081230svn2798.1
+Source:		tiemu-%{version}-svn2798.tar.bz2
+Group: 		Emulators
+License:	GPL
+BuildRequires:	libticables-devel >= 1:1.0.0, libticonv-devel >= 1:1.0.4, libtifiles-devel >= 1:1.0.7, libticalcs-devel >= 1:1.0.7, glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, libglade2-devel >= 2.4.0, zlib-devel, kdelibs3-devel, libX11-devel, libXext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff
+Requires:	tcl >= 8.4, tk >= 8.4, itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
+Conflicts:	tcl < 1:8.5, tk < 1:8.5, itcl < 3.3, itk < 3.3, iwidgets < 4.0.2
+Requires:	xdg-utils >= 1.0.0
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Obsoletes:	tiemu < %{version}, tiemu-tigcc-debugging < 20050828
+Conflicts:	tiemu > %{version}
+Provides:	tiemu = %{version}
+Summary:	TiEmu is a TI89(Ti)/92(+)/V200 emulator
 
 %description
 TiEmu is a TI89(Ti)/92(+)/V200 emulator. This version supports graphical debugging using Insight GDB.
