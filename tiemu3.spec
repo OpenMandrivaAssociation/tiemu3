@@ -1,18 +1,16 @@
 Name: tiemu3
 Epoch: 1
 Version: 3.03
-%if 0%{?fedora} == 8
-Release: 0.1.20081230svn2798
+Release: %mkrel 0.1.20081230svn2798.1
+
 %define system_tcl 1
-%else
 Release: 0.1.20081230svn2798.1
 %endif
 Vendor: LPG (http://lpg.ticalc.org)
-Packager: Kevin Kofler <Kevin@tigcc.ticalc.org>
 Source: tiemu-%{version}-svn2798.tar.bz2
 Group: Applications/Emulators
 License: GPLv2+
-BuildRequires: libticables2-devel >= 1:1.0.0, libticonv-devel >= 1:1.0.4, libtifiles2-devel >= 1:1.0.7, libticalcs2-devel >= 1:1.0.7, glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, libglade2-devel >= 2.4.0, zlib-devel, kdelibs3-devel, libX11-devel, libXext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff
+BuildRequires: libticables-devel >= 1:1.0.0, libticonv-devel >= 1:1.0.4, libtifiles-devel >= 1:1.0.7, libticalcs-devel >= 1:1.0.7, glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, libglade2-devel >= 2.4.0, zlib-devel, kdelibs3-devel, libX11-devel, libXext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff
 %if 0%{?system_tcl}
 Requires: tcl >= 8.4, tk >= 8.4, itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
 %else
