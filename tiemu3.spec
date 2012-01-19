@@ -2,7 +2,7 @@
 Name:		tiemu3
 Version:	3.03
 Release: 	%mkrel 0.1.20081230svn2798.1
-Source:		tiemu-%{version}-svn2798.tar.bz2
+Source:		tiemu-%{version}.tar.bz2
 Group: 		Emulators
 License:	GPL
 BuildRequires:	libticables-devel >= 1:1.0.0, libticonv-devel >= 1:1.0.4, libtifiles-devel >= 1:1.0.7, libticalcs-devel >= 1:1.0.7, glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, libglade2-devel >= 2.4.0, zlib-devel, kdelibs3-devel, libX11-devel, libXext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff
@@ -19,7 +19,7 @@ Summary:	TiEmu is a TI89(Ti)/92(+)/V200 emulator
 TiEmu is a TI89(Ti)/92(+)/V200 emulator. This version supports graphical debugging using Insight GDB.
 
 %prep
-%setup -q -n tiemu-%{version}-svn2798 
+%setup -q -n tiemu-%{version}
 
 %build
 source /etc/profile.d/qt.sh
