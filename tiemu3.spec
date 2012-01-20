@@ -1,10 +1,12 @@
+%define		Werror_cflags %nil
+
 Name:		tiemu3
 Version:	3.03
 Release: 	%mkrel 0.1
 Source:		tiemu-%{version}.tar.xz
 Group: 		Emulators
 License:	GPL
-BuildRequires:	libticables-devel libticonv-devel libtifiles-devel libticalcs-devel glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, zlib-devel, libx11-devel, libxext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff
+BuildRequires:	libticables-devel libticonv-devel libtifiles-devel libticalcs-devel glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, zlib-devel, libx11-devel, libxext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff qt3-devel
 Requires:	tcl >= 8.4, tk >= 8.4, itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
 Conflicts:	tcl < 1:8.5, tk < 1:8.5, itcl < 3.3, itk < 3.3, iwidgets < 4.0.2
 Requires:	xdg-utils >= 1.0.0
@@ -25,7 +27,7 @@ TiEmu is a TI89(Ti)/92(+)/V200 emulator. This version supports graphical debuggi
 # sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itcl/configure
 # sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itk/configure.in
 # sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itk/configure
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --mandir=%{_mandir} --disable-nls --enable-shared-tcl-tk --enable-shared-itcl --with-dbus
+CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --mandir=%{_mandir} --disable-nls --enable-shared-tcl-tk --enable-shared-itcl --with-dbus --without-kde --disable-gdb
 make
 
 %install
