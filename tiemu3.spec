@@ -2,11 +2,11 @@
 
 Name:		tiemu3
 Version:	3.04svn
-Release: 	%mkrel 0.1
+Release:	%mkrel 0.1
 Source:		tiemu-%{version}.tar.xz
 Group: 		Emulators
 License:	GPL
-BuildRequires:	libticables-devel libticonv-devel libtifiles-devel libticalcs-devel glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, zlib-devel, libx11-devel, libxext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff qt3-devel libgtk+2.0-devel
+BuildRequires:	libticables-devel libticonv-devel libtifiles-devel libticalcs-devel glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, zlib-devel, X11-devel, libxext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff qt3-devel 
 Requires:	tcl >= 8.4, tk >= 8.4, itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
 Conflicts:	tcl < 1:8.5, tk < 1:8.5, itcl < 3.3, itk < 3.3, iwidgets < 4.0.2
 Requires:	xdg-utils >= 1.0.0
@@ -16,7 +16,7 @@ Provides:	tiemu = %{version}
 Summary:	TiEmu is a TI89(Ti)/92(+)/V200 emulator
 
 %description
-TiEmu is a TI89(Ti)/92(+)/V200 emulator. This version supports graphical debugging using Insight GDB.
+TiEmu is a TI89(Ti)/92(+)/V200 emulator.
 
 %prep
 %setup -q -n tiemu-%{version}
@@ -77,11 +77,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-, root, root)
-/usr/bin/tiemu
+%{_bindir}/tiemu
 %{_mandir}/man1/tiemu*
-/usr/share/insight*
-/usr/share/redhat/gui
-/usr/share/tiemu
+%{_datadir}/insight*
+%{_datadir}/redhat/gui
+%{_datadir}/tiemu
 %{_datadir}/applications/lpg-tiemu.desktop
 %{_datadir}/tcl8.4
 %{_datadir}/tk8.4
@@ -90,5 +90,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/iwidgets4.0.1
 %{_libdir}/itcl3.2
 %{_libdir}/itk3.2
-
-
