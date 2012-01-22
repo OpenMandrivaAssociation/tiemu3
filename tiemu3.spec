@@ -90,3 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/iwidgets4.0.1
 %{_libdir}/itcl3.2
 %{_libdir}/itk3.2
+%{_bindir}/*8.4*
+%{_includedir}/*
+%{_libdir}/*
+%{_mandir}/man3/*
