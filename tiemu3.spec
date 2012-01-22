@@ -36,17 +36,17 @@ mkdir -p $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
 # don't package unneeded empty directory
-rmdir $RPM_BUILD_ROOT%{_libdir}/insight1.0
+# rmdir $RPM_BUILD_ROOT%{_libdir}/insight1.0
 # don't package Tcl/Tk stuff which conflicts with the system versions
-rm -rf $RPM_BUILD_ROOT%{_includedir}
-rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tclsh.1* $RPM_BUILD_ROOT%{_mandir}/man1/wish.1*
-rm -rf $RPM_BUILD_ROOT%{_mandir}/man3
-rm -rf $RPM_BUILD_ROOT%{_mandir}/mann
-rm -rf $RPM_BUILD_ROOT/usr/man/mann
-rm -f $RPM_BUILD_ROOT%{_libdir}/tclConfig.sh $RPM_BUILD_ROOT%{_libdir}/tkConfig.sh
+# rm -rf $RPM_BUILD_ROOT%{_includedir}
+# rm -f $RPM_BUILD_ROOT%{_mandir}/man1/tclsh.1* $RPM_BUILD_ROOT%{_mandir}/man1/wish.1*
+# rm -rf $RPM_BUILD_ROOT%{_mandir}/man3
+# rm -rf $RPM_BUILD_ROOT%{_mandir}/mann
+# rm -rf $RPM_BUILD_ROOT/usr/man/mann
+# rm -f $RPM_BUILD_ROOT%{_libdir}/tclConfig.sh $RPM_BUILD_ROOT%{_libdir}/tkConfig.sh
 # don't package these either, they won't conflict, but they aren't useful either
-rm -f $RPM_BUILD_ROOT%{_bindir}/tclsh8.4 $RPM_BUILD_ROOT%{_bindir}/wish8.4
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
+# rm -f $RPM_BUILD_ROOT%{_bindir}/tclsh8.4 $RPM_BUILD_ROOT%{_bindir}/wish8.4
+# rm -f $RPM_BUILD_ROOT%{_libdir}/*.a
 
 mkdir -p ${RPM_BUILD_ROOT}/usr/share/applications
 cat >${RPM_BUILD_ROOT}/usr/share/applications/tiemu.desktop <<EOF
