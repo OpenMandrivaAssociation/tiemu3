@@ -1,7 +1,7 @@
 %define		Werror_cflags %nil
 
 Name:		tiemu3
-Version:	3.03
+Version:	3.04svn
 Release: 	%mkrel 0.1
 Source:		tiemu-%{version}.tar.xz
 Group: 		Emulators
