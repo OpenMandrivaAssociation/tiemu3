@@ -90,5 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/iwidgets4.0.1
 %{_libdir}/itcl3.2
 %{_libdir}/itk3.2
-
-
+%{_libdir}/libitcl3.2.so
+%{_libdir}/libitk3.2.so
+%{_libdir}/libtcl8.4.so
+%{_libdir}/libtk8.4.so
+%{_libdir}/tk8.4/pkgIndex.tcl
