@@ -2,12 +2,12 @@
 
 Name:		tiemu3
 Version:	3.04svn
-Release:	%mkrel 0.1
+Release:	%mkrel 0.2
 Source:		tiemu-%{version}.tar.xz
 Group: 		Emulators
 License:	GPL
 BuildRequires:	libticables-devel libticonv-devel libtifiles-devel libticalcs-devel glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, zlib-devel, X11-devel, libxext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff qt3-devel libglade2.0-devel
-Requires:	tcl >= 8.4, tk >= 8.4, itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
+Requires:	tcl >= 8.4, tk itcl >= 3.3-0.11.RC1, itk >= 3.3-0.8.RC1, iwidgets >= 4.0.1
 Conflicts:	tcl < 1:8.5, tk < 1:8.5, itcl < 3.3, itk < 3.3, iwidgets < 4.0.2
 Requires:	xdg-utils >= 1.0.0
 BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}-buildroot
