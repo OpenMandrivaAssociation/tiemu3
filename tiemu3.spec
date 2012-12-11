@@ -1,17 +1,35 @@
 %define		Werror_cflags %nil
 
+Summary:	TiEmu is a TI89(Ti)/92(+)/V200 emulator
 Name:		tiemu3
 Version:	3.04svn
 Release:	%mkrel 0.3
 Source:		tiemu-%{version}.tar.xz
 Group: 		Emulators
 License:	GPL
-BuildRequires:	libticables-devel libticonv-devel libtifiles-devel libticalcs-devel glib2-devel >= 2.6.0, gtk2-devel >= 2.6.0, zlib-devel, X11-devel, libxext-devel, ncurses-devel, desktop-file-utils >= 0.10, bison >= 1.28, flex >= 2.5.4, texinfo >= 4.4, dbus-devel >= 0.60, dbus-glib-devel >= 0.60, SDL-devel >= 1.2.0, groff qt3-devel libglade2.0-devel
+BuildRequires:	libticables-devel
+BuildRequires:	libticonv-devel
+BuildRequires:	libtifiles-devel
+BuildRequires:	libticalcs-devel
+BuildRequires:	glib2-devel >= 2.6.0
+BuildRequires:	gtk2-devel >= 2.6.0
+BuildRequires:	zlib-devel
+BuildRequires:	X11-devel
+BuildRequires:	libxext-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	desktop-file-utils >= 0.10
+BuildRequires:	bison >= 1.28
+BuildRequires:	flex >= 2.5.4
+BuildRequires:	texinfo >= 4.4
+BuildRequires:	dbus-devel >= 0.60
+BuildRequires:	dbus-glib-devel >= 0.60
+BuildRequires:	SDL-devel >= 1.2.0
+BuildRequires:	groff
+BuildRequires:	qt3-devel
+BuildRequires:	libglade2.0-devel
 Requires:	xdg-utils >= 1.0.0
-BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}-buildroot
 Conflicts:	tiemu > %{version}
 Provides:	tiemu = %{version}
-Summary:	TiEmu is a TI89(Ti)/92(+)/V200 emulator
 
 %description
 TiEmu is a TI89(Ti)/92(+)/V200 emulator.
@@ -25,13 +43,12 @@ TiEmu is a TI89(Ti)/92(+)/V200 emulator.
 # sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itcl/configure
 # sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itk/configure.in
 # sed -i 's/MINOR_VERSION=2/MINOR_VERSION=3/g;s/PATCHLEVEL=\.1/PATCHLEVEL=\.0/g' src/gdb/itcl/itk/configure
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --mandir=%{_mandir} --disable-nls --enable-shared-tcl-tk --enable-shared-itcl --with-dbus --without-kde
+CFLAGS="%{optflags}" ./configure --prefix=%{_prefix} --libdir=%{_libdir} --mandir=%{_mandir} --disable-nls --enable-shared-tcl-tk --enable-shared-itcl --with-dbus --without-kde
 make
 
 %install
-if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT; fi
 mkdir -p $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
+%makeinstall_std
 
 # don't package unneeded empty directory
 # rmdir $RPM_BUILD_ROOT%{_libdir}/insight1.0
@@ -64,17 +81,9 @@ desktop-file-install --delete-original --vendor lpg     \
   --dir ${RPM_BUILD_ROOT}%{_datadir}/applications          \
   ${RPM_BUILD_ROOT}/usr/share/applications/tiemu.desktop
 
-%post
-update-desktop-database %{_datadir}/applications > /dev/null 2>&1 || :
-
-%postun
-update-desktop-database %{_datadir}/applications > /dev/null 2>&1 || :
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+find %{buildroot} -perm 0555 | xargs chmod 0755
 
 %files
-%defattr(-, root, root)
 %{_bindir}/tiemu
 %{_mandir}/man1/tiemu*
 %{_datadir}/insight*
@@ -93,3 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libtcl8.4.so
 %{_libdir}/libtk8.4.so
 %{_libdir}/tk8.4/pkgIndex.tcl
+
