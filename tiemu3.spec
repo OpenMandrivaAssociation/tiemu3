@@ -14,8 +14,8 @@ BuildRequires:	libticalcs-devel
 BuildRequires:	glib2-devel >= 2.6.0
 BuildRequires:	gtk2-devel >= 2.6.0
 BuildRequires:	zlib-devel
-BuildRequires:	X11-devel
-BuildRequires:	libxext-devel
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xext)
 BuildRequires:	ncurses-devel
 BuildRequires:	desktop-file-utils >= 0.10
 BuildRequires:	bison >= 1.28
