@@ -3,7 +3,7 @@
 Summary:	TiEmu is a TI89(Ti)/92(+)/V200 emulator
 Name:		tiemu3
 Version:	3.04svn
-Release:	%mkrel 0.3
+Release:	0.4
 Source:		tiemu-%{version}.tar.xz
 Group: 		Emulators
 License:	GPL
