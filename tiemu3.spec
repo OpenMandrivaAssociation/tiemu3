@@ -7,6 +7,7 @@ Release:	0.4
 Source:		tiemu-%{version}.tar.xz
 Group: 		Emulators
 License:	GPL
+BuildRequires:	make
 BuildRequires:	libticables-devel
 BuildRequires:	libticonv-devel
 BuildRequires:	libtifiles-devel
